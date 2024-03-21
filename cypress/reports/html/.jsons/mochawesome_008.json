@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-21T16:29:15.710Z",
+    "end": "2024-03-21T16:29:25.270Z",
+    "duration": 9560,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0f9bb580-7dd5-4ef8-a1d1-cb359e304137",
+      "title": "",
+      "fullFile": "cypress\\e2e\\2-advanced-examples\\files.cy.js",
+      "file": "cypress\\e2e\\2-advanced-examples\\files.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7be5f474-6af2-4214-9e46-511c06ccf034",
+          "title": "Files",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.fixture() - load a fixture",
+              "fullTitle": "Files cy.fixture() - load a fixture",
+              "timedOut": null,
+              "duration": 1890,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/fixture\n// Instead of writing a response inline you can\n// use a fixture file's content.\n// when application makes an Ajax request matching \"GET **/comments/*\"\n// Cypress will intercept it and reply with the object in `example.json` fixture\ncy.intercept('GET', '**/comments/*', {\n  fixture: 'example.json'\n}).as('getComment');\n// we have code that gets a comment when\n// the button is clicked in scripts.js\ncy.get('.fixture-btn').click();\ncy.wait('@getComment').its('response.body').should('have.property', 'name').and('include', 'Using fixtures to represent data');",
+              "err": {},
+              "uuid": "f06525d5-2ded-496a-9b9a-922d6104927d",
+              "parentUUID": "7be5f474-6af2-4214-9e46-511c06ccf034",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.fixture() or require - load a fixture",
+              "fullTitle": "Files cy.fixture() or require - load a fixture",
+              "timedOut": null,
+              "duration": 490,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// we are inside the \"function () { ... }\"\n// callback and can use test context object \"this\"\n// \"this.example\" was loaded in \"beforeEach\" function callback\nexpect(this.example, 'fixture in the test context').to.deep.equal(requiredExample);\n// or use \"cy.wrap\" and \"should('deep.equal', ...)\" assertion\ncy.wrap(this.example).should('deep.equal', requiredExample);",
+              "err": {},
+              "uuid": "8e5e6359-fe6f-425f-8088-ffed02f14220",
+              "parentUUID": "7be5f474-6af2-4214-9e46-511c06ccf034",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.readFile() - read file contents",
+              "fullTitle": "Files cy.readFile() - read file contents",
+              "timedOut": null,
+              "duration": 328,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/readfile\n// You can read a file and yield its contents\n// The filePath is relative to your project's root.\ncy.readFile(Cypress.config('configFile')).then(config => {\n  expect(config).to.be.an('string');\n});",
+              "err": {},
+              "uuid": "668a3153-e38a-4efb-b48e-7bc3f08c4ea4",
+              "parentUUID": "7be5f474-6af2-4214-9e46-511c06ccf034",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.writeFile() - write to a file",
+              "fullTitle": "Files cy.writeFile() - write to a file",
+              "timedOut": null,
+              "duration": 930,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/writefile\n// You can write to a file\n// Use a response from a request to automatically\n// generate a fixture file for use later\ncy.request('https://jsonplaceholder.cypress.io/users').then(response => {\n  cy.writeFile('cypress/fixtures/users.json', response.body);\n});\ncy.fixture('users').should(users => {\n  expect(users[0].name).to.exist;\n});\n// JavaScript arrays and objects are stringified\n// and formatted into text.\ncy.writeFile('cypress/fixtures/profile.json', {\n  id: 8739,\n  name: 'Jane',\n  email: 'jane@example.com'\n});\ncy.fixture('profile').should(profile => {\n  expect(profile.name).to.eq('Jane');\n});",
+              "err": {},
+              "uuid": "39b85c52-bcf7-4721-b2b5-719e8fdca3f7",
+              "parentUUID": "7be5f474-6af2-4214-9e46-511c06ccf034",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f06525d5-2ded-496a-9b9a-922d6104927d",
+            "8e5e6359-fe6f-425f-8088-ffed02f14220",
+            "668a3153-e38a-4efb-b48e-7bc3f08c4ea4",
+            "39b85c52-bcf7-4721-b2b5-719e8fdca3f7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3638,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
