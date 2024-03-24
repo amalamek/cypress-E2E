@@ -15,7 +15,7 @@ pipeline {
 
         
 
-        stage('Building') {
+        stage('Building stage ') {
             steps {
                 echo 'Building stage'
                 // Add any build steps here if needed
