@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     bat "npm install  "
-                    bat  ".\node_modules\.bin\cypress.cmd install --force"
+                      bat ".\\node_modules\\.bin\\cypress.cmd install --force"
                     bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
                 }
             }
