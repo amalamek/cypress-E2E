@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2024-03-21T16:54:15.368Z",
-    "end": "2024-03-21T16:54:34.391Z",
-    "duration": 19023,
+    "start": "2024-03-23T08:12:16.328Z",
+    "end": "2024-03-23T08:12:43.200Z",
+    "duration": 26872,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "810becf9-8eff-48b6-abe4-fd774adabe69",
+      "uuid": "813d6151-2260-4446-8a67-18a13e4cbfdf",
       "title": "",
       "fullFile": "cypress\\e2e\\RegisterTest.cy.js",
       "file": "cypress\\e2e\\RegisterTest.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "bfef4e01-34cf-4c09-a618-ea07172ad44c",
+          "uuid": "45cf3e36-647c-4923-9700-6a73e0f6816b",
           "title": "automation test",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "registation test",
               "fullTitle": "automation test registation test",
               "timedOut": null,
-              "duration": 9597,
+              "duration": 18617,
               "state": "passed",
-              "speed": "medium",
+              "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "registerObj.openUrl();\nregisterObj.enterfirstName(_RegisterData.default.firstName);\nregisterObj.enterlastName(_RegisterData.default.lastName);\nregisterObj.enterPhone(_RegisterData.default.telephone);\nregisterObj.enterEmail(_RegisterData.default.email);\nregisterObj.enterPassword(_RegisterData.default.password);\nregisterObj.selectCheck();\nregisterObj.continu();",
               "err": {},
-              "uuid": "d6b1b961-bd89-4b7d-a609-c9f1bde3ac2b",
-              "parentUUID": "bfef4e01-34cf-4c09-a618-ea07172ad44c",
+              "uuid": "6e0ecfe8-0f04-4bc7-86cc-e6344697f8dd",
+              "parentUUID": "45cf3e36-647c-4923-9700-6a73e0f6816b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d6b1b961-bd89-4b7d-a609-c9f1bde3ac2b"
+            "6e0ecfe8-0f04-4bc7-86cc-e6344697f8dd"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 9597,
+          "duration": 18617,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
