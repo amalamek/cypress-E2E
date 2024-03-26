@@ -6,8 +6,10 @@ def COLOR_MAP = [
 ]
 
 def getBuildUser() {
-    return currentBuild.rawBuild.getCause(Cause.UserIdCause).userId
+    def cause = currentBuild.causes.find { it instanceof Cause.UserIdCause }
+    return cause ? cause.userId : 'Unknown'
 }
+
 
 pipeline {
     agent any
