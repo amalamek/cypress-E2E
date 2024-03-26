@@ -63,9 +63,9 @@ pipeline {
                 BUILD_USER=getBuildUser()
             }
 
-            slackSend Channel= '#jenkins-exemple'
-                color :COLOR_MAP[currentBuild.currentResult]
-                message:"*${currentBuild.currentResult}:* ${env.JOB_NAME}  Build  ${env.BUILD_NUMBER}"
+            slackSend Channel: '#jenkins-exemple',
+                color :COLOR_MAP[currentBuild.currentResult],
+                message:"*${currentBuild.currentResult}:* ${env.JOB_NAME}  Build  ${env.BUILD_NUMBER}  by ${BUILD_USER}\nTests ${SPEC} at ${BROWSER}",
             // Clean up any artifacts or temporary files if needed
             publishHTML(allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress\\reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true)
         }
