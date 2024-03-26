@@ -1,5 +1,25 @@
+import groovy.json.JsonOutput
+
+
+   def COLOR_MAP=[
+     'SUCCESS'='good',
+     'FAILURE'='danger',
+
+   ]
+
+    def getBuildUser()
+    {return currentBuild.rawBuild.getCause(Cause.UserIdCause).getUserId}
+
+
 pipeline {
     agent any
+
+
+  enviroment{
+
+    BUILD_USER=''
+  }
+
 
     parameters {
         string(name: 'SPEC', defaultValue: 'cypress/e2e/RegisterTest.cy.js', description: 'Enter the script you want to run')
@@ -38,6 +58,14 @@ pipeline {
 
     post {
         always {
+
+            script{
+                BUILD_USER=getBuildUser()
+            }
+
+            slackSend Channel= '#jenkins-exemple'
+                color :COLOR_MAP[currentBuild.currentResult]
+                message:"*${currentBuild.currentResult}:* ${env.JOB_NAME}  Build  ${env.BUILD_NUMBER}"
             // Clean up any artifacts or temporary files if needed
             publishHTML(allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress\\reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true)
         }
